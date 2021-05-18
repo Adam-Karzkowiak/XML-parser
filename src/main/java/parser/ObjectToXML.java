@@ -1,4 +1,4 @@
 package parser;
 
-class ObjectToXML {
+public class ObjectToXML {
 }
