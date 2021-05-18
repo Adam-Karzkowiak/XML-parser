@@ -1,9 +1,12 @@
 import entity.Student;
 import parser.ObjectToXML;
+import parser.XMLReader;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+//TODO move it to tests
 public class Start {
     public static void main(String[] args) {
         String[] subjects = {"pl", "eng", "math"};
@@ -13,5 +16,6 @@ public class Start {
         studentList.add(student);
         studentList.add(studentTwo);
         ObjectToXML.saveStudentToXML(studentList);
+        XMLReader.printXML();
     }
 }
