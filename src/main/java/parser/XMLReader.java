@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import entity.Student;
 import lombok.SneakyThrows;
+import repository.StudentRepository;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +17,7 @@ import java.util.List;
 public class XMLReader {
 
     @SneakyThrows
-    public static void printXML() {
+    public static void readXML() {
         ObjectMapper mapper = new XmlMapper();
         InputStream inputStream = null;
         try {
@@ -27,10 +28,6 @@ public class XMLReader {
         TypeReference<List<Student>> typeReference = new TypeReference<List<Student>>() {
         };
         List<Student> studentsList = mapper.readValue(inputStream, typeReference);
-        for (Student s : studentsList) {
-            System.out.println("Name  " + s.getName() +
-                    " surname " + s.getSurname() +
-                    " subjects " + Arrays.toString(s.getSubjects()));
-        }
+        StudentRepository.studentList.addAll(studentsList);
     }
 }
