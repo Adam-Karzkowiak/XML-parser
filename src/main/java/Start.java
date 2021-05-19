@@ -1,6 +1,7 @@
 import entity.Student;
 import parser.ObjectToXML;
 import parser.XMLReader;
+import repository.StudentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Start {
         studentList.add(student);
         studentList.add(studentTwo);
         ObjectToXML.saveStudentToXML(studentList);
-        XMLReader.printXML();
+        XMLReader.readXML();
+        System.out.println(StudentRepository.studentList.toString());
     }
 }
